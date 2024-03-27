@@ -11,6 +11,9 @@ marshmallow = "*"
 psycopg2 = "*"
 requests = "*"
 gunicorn = "*"
+PyJWT = "*"
+
+[dev-packages]
 faker = "*"
 pytest = "*"
 pytest-cov = "*"

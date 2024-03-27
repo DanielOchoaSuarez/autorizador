@@ -71,8 +71,10 @@ El proyecto cuenta con el archivo Dockerfile con toda la configuración necesari
 
 Las pruebas unitarias se realizan a través de la herramienta [pytest](https://docs.pytest.org/en/8.0.x/). El proyecto cuenta con el archivo pytest.ini con la configuración del log para la ejecución de pruebas.
 
-Para correr las pruebas unitarias es necesario tener configuradas las variables de ambiente en el archivo .env como se indica en la sección [Iniciar la aplicación](#iniciar-la-aplicación). Puede ejecutar las pruebas unitarias con el siguiente comando:
+Para correr las pruebas unitarias es necesario tener configuradas las variables de ambiente en el archivo .env como se indica en la sección [Iniciar la aplicación](#iniciar-la-aplicación). Puede ejecutar las pruebas unitarias ejecutando los siguientes comandos:
 
-- `pytest --cov-fail-under=70 --cov=src --cov-report=html`
+1. `pipenv shell`
+2. `pipenv install --dev`
+3. `pytest --cov-fail-under=70 --cov=src --cov-report=html`
 
-Una vez se ejecute el comando, se corren todas las pruebas unitarias y se elabora el reporte de cobertura que puede visualizar en un navegador abriendo el archivo ./htmlcov/index.html
+Una vez se ejecute el ultimo comando, se corren todas las pruebas unitarias y se elabora el reporte de cobertura que puede visualizar en un navegador abriendo el archivo ./htmlcov/index.html

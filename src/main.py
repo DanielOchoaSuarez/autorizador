@@ -4,7 +4,7 @@ from flask import Flask, jsonify
 
 from src.errors.errors import ApiError
 from src.blueprints.health_blueprint import health_blueprint
-# from src.blueprints.deporte_blueprint import deporte_blueprint
+from src.blueprints.seguridad_blueprint import seguridad_blueprint
 from src.models.db import init_db
 
 # Configuración logging
@@ -24,7 +24,7 @@ init_db()
 # Registro de blueprints
 PREFIJO = '/autorizador/'
 app.register_blueprint(health_blueprint, url_prefix=PREFIJO+'health')
-# app.register_blueprint(deporte_blueprint, url_prefix=PREFIJO+'deportes')
+app.register_blueprint(seguridad_blueprint, url_prefix=PREFIJO+'seguridad')
 
 
 @app.errorhandler(ApiError)

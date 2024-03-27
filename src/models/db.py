@@ -1,7 +1,8 @@
+import os
 from sqlalchemy import create_engine
 from sqlalchemy.orm import scoped_session, sessionmaker
-from sqlalchemy.ext.declarative import declarative_base
-import os
+from sqlalchemy.orm import declarative_base
+
 
 db_user = os.getenv('DB_USER', 'laad')
 db_password = os.getenv('DB_PASSWORD', 'laad')
@@ -22,5 +23,5 @@ def init_db():
     # import all modules here that might define models so that
     # they will be registered properly on the metadata.  Otherwise
     # you will have to import them first before calling init_db()
-    from .deporte import DeporteEntity
+    # from .deporte import DeporteEntity
     Base.metadata.create_all(bind=engine)
