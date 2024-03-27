@@ -1,0 +1,21 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "autorizador"
+
+[packages]
+flask = "*"
+python-dotenv = "*"
+sqlalchemy = "*"
+marshmallow = "*"
+psycopg2 = "*"
+requests = "*"
+gunicorn = "*"
+faker = "*"
+pytest = "*"
+pytest-cov = "*"
+pytest-mock = "*"
+pytest-env = "*"
+
+[requires]
+python_version = "3.10"
