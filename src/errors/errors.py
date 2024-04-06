@@ -17,7 +17,6 @@ class Forbidden(ApiError):
     code = 403
     description = "forbidden"
 
-
 class ResourceNotFound(ApiError):
     code = 404
     description = "resource_not_found"
