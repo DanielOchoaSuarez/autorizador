@@ -35,7 +35,7 @@ jobs:
           DB_NAME: ${{ secrets.DB_NAME }}
           DB_PASS: ${{ secrets.DB_PASS }}
         run: |
-          pipenv run pytest --cov=src --cov-fail-under=70
+          pipenv run pytest --cov=src --cov-fail-under=80
 
   # create_release:
   #   needs: test_servicio
