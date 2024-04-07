@@ -4,7 +4,7 @@ on:
     branches:
       - main
 env:
-  ECR_REPOSITORY: servicio-gestor-usuarios
+  ECR_REPOSITORY: sport-app-autorizador
   EKS_CLUSTER_NAME: pf-cluster
   AWS_REGION: us-east-1
 jobs:
