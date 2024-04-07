@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sport-app-autorizador-deploy
+  labels:
+    app: sport-app-autorizador-deploy
+  namespace: eks-sport-app
+  annotations:
+    monitoring: "true"
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: sport-app-autorizador-deploy
+  template:
+    metadata:
+      labels:
+        app: sport-app-autorizador-deploy
+    spec:
+      containers:
+        - name: sport-app-autorizador-deploy
+          image: DOCKER_IMAGE
+          ports:
+            - containerPort: 3000
+          imagePullPolicy: Always
+          livenessProbe:
+            httpGet:
+              path: /autorizador/health/ping
+              port: 3000
+            initialDelaySeconds: 30
+            periodSeconds: 60
+          resources:
+            limits:
+              memory: "2Gi"
+              cpu: "1000m"
+            requests:
+              memory: "1Gi"
+              cpu: "500m"
