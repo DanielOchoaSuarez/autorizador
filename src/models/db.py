@@ -4,17 +4,11 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import scoped_session, sessionmaker
 from sqlalchemy.orm import declarative_base
 
-logger = logging.getLogger(__name__)
-
 db_user = os.getenv('DB_USER', 'laad')
 db_password = os.getenv('DB_PASSWORD', 'laad')
 db_host = os.getenv('DB_HOST', 'localhost')
 db_port = os.getenv('DB_PORT', '5432')
 db_name = os.getenv('DB_NAME', 'sport_app_db')
-
-
-logger.info('Cargando variables de entorno')
-logger.info('DB_USER: %s', db_user)
 
 
 engine = create_engine(
