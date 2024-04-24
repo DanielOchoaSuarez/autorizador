@@ -18,7 +18,20 @@ class ValidarToken(BaseCommand):
         try:
             data = jwt.decode(self.token, jwt_secret_key, algorithms=["HS256"])
             logger.info(f'Token válido para {data.get("email")}')
-            return {'token_valido': True, 'email': data.get('email')}
+
+            resp = {
+                'token_valido': True,
+                'email': data.get('email')
+            }
+
+            if 'subscripcion' in data:
+                resp['subscripcion'] = data.get('subscripcion')
+
+            if 'tipo_usuario' in data:
+                resp['tipo_usuario'] = data.get('tipo_usuario')
+
+            return resp
+
         except Exception as e:
             logger.error(f'Error al validar token {e}')
             return {'token_valido': False}
