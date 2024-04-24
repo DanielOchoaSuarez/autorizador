@@ -11,7 +11,12 @@ seguridad_blueprint = Blueprint('seguridad', __name__)
 @seguridad_blueprint.route('/generar-token', methods=['POST'])
 def generar_token():
     body = request.get_json()
-    result = ObtenerToken(body.get('email', None)).execute()
+    info = {
+        'email': body.get('email', None),
+        'subscripcion': body.get('subscripcion', None),
+        'tipo_usuario': body.get('tipo_usuario', None)
+    }
+    result = ObtenerToken(**info).execute()
     return make_response(jsonify({'token': result}), 200)
 
 
