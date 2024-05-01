@@ -11,7 +11,12 @@ class TestValidarToken():
     def test_validar_token_valido(self):
         with app.test_client() as test_client:
             email_random = fake.email()
-            body_get_token = {"email": email_random}
+            body_get_token = {
+                "email": email_random,
+                "subscripcion": 'Premium',
+                "tipo_usuario": 'deportista',
+            }
+
             response = test_client.post(
                 '/autorizador/seguridad/generar-token', json=body_get_token)
             response_token = json.loads(response.data)
